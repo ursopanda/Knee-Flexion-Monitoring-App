@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="#38895D"
+    android:weightSum="1"
+    android:id="@+id/mainLinearLayout">
+
+    <TextView
+        android:background="#38895D"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Accelerometer Data"
+        android:textSize="30sp"
+        android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:padding="2dp"
+        android:id="@+id/deviceNameTextView" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="#38895D">
+        <TextView
+            android:id="@+id/firstAccelerometerName"
+            android:text="                       Accelerometer 1"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:textAlignment="center"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="#38895D">
+        <TextView
+            android:text="X axis norm value"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            />
+        <TextView
+            android:id="@+id/firstAccNormXValue"
+            android:text="0"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:layout_weight="1"
+            android:gravity="right"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="#38895D"
+        >
+        <TextView
+            android:text="Y axis norm value"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            />
+        <TextView
+            android:id="@+id/firstAccNormYValue"
+            android:text="0"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:layout_weight="1"
+            android:gravity="right"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="#38895D"
+        >
+        <TextView
+            android:text="Z axis norm value"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            />
+        <TextView
+            android:id="@+id/firstAccNormZValue"
+            android:text="0"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:layout_weight="1"
+            android:gravity="right"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="#38895D">
+        <TextView
+            android:id="@+id/secondAccelerometerName"
+            android:text="                       Accelerometer 2"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:textAlignment="center"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="#38895D">
+        <TextView
+            android:text="X axis norm value"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            />
+        <TextView
+            android:id="@+id/secondAccNormXValue"
+            android:text="0"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:layout_weight="1"
+            android:gravity="right"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="#38895D"
+        >
+        <TextView
+            android:text="Y axis norm value"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            />
+        <TextView
+            android:id="@+id/secondAccNormYValue"
+            android:text="0"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:layout_weight="1"
+            android:gravity="right"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="#38895D"
+        >
+        <TextView
+            android:text="Z axis norm value"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            />
+        <TextView
+            android:id="@+id/secondAccNormZValue"
+            android:text="0"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:layout_weight="1"
+            android:gravity="right"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="#38895D">
+        <TextView
+            android:id="@+id/thirdAccelerometerName"
+            android:text="                       Accelerometer 3"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:textAlignment="center"
+            android:textStyle="bold" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="#38895D"
+        >
+        <TextView
+            android:text="X axis norm value"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF" />
+        <TextView
+            android:id="@+id/thirdAccNormXValue"
+            android:text="0"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:layout_weight="1"
+            android:gravity="right" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="#38895D"
+        >
+        <TextView
+            android:text="Y axis norm value"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF" />
+        <TextView
+            android:id="@+id/thirdAccNormYValue"
+            android:text="0"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:layout_weight="1"
+            android:gravity="right" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="#38895D"
+        >
+        <TextView
+            android:text="Z axis norm value"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF" />
+        <TextView
+            android:id="@+id/thirdAccNormZValue"
+            android:text="0"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:layout_weight="1"
+            android:gravity="right" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="#38895D">
+        <TextView
+            android:id="@+id/fourthAccelerometerName"
+            android:text="                       Accelerometer 4"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:textAlignment="center"
+            android:textStyle="bold" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="#38895D"
+        >
+        <TextView
+            android:text="X axis norm value"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF" />
+        <TextView
+            android:id="@+id/fourthAccNormXValue"
+            android:text="0"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:layout_weight="1"
+            android:gravity="right" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="#38895D"
+        >
+        <TextView
+            android:text="Y axis norm value"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF" />
+        <TextView
+            android:id="@+id/fourthAccNormYValue"
+            android:text="0"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:layout_weight="1"
+            android:gravity="right" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="#38895D"
+        >
+        <TextView
+            android:text="Z axis norm value"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF" />
+        <TextView
+            android:id="@+id/fourthAccNormZValue"
+            android:text="0"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:layout_weight="1"
+            android:gravity="right" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="#38895D">
+        <TextView
+            android:text="                       Flexion Angles"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:textAlignment="center"
+            android:textStyle="bold" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="#38895D"
+        android:layout_weight="0.16" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="#38895D">
+        <TextView
+            android:text="Flexion Angle 1 and 3 Acc"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF" />
+        <TextView
+            android:id="@+id/flexionAngle"
+            android:text="0"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:layout_weight="1"
+            android:gravity="right" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="#38895D">
+        <TextView
+            android:text="Flexion Angle 1 and 4 Acc"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:layout_weight="0.23" />
+        <TextView
+            android:id="@+id/flexionAngle2"
+            android:text="0"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:layout_weight="1"
+            android:gravity="right" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="#38895D">
+        <TextView
+            android:text="Flexion Angle 2 and 3 Acc"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:layout_weight="0.23" />
+        <TextView
+            android:id="@+id/flexionAngle3"
+            android:text="0"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:layout_weight="1"
+            android:gravity="right" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="#38895D">
+        <TextView
+            android:text="Flexion Angle 2 and 4 Acc"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:layout_weight="0.23" />
+        <TextView
+            android:id="@+id/flexionAngle4"
+            android:text="0"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:layout_weight="1"
+            android:gravity="right" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="#38895D">
+        <TextView
+            android:text="Flexion Angle 1 - 4 Acc"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:layout_weight="0.23" />
+        <TextView
+            android:id="@+id/flexionAngle5"
+            android:text="0"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:layout_weight="1"
+            android:gravity="right" />
+    </LinearLayout>
+
+</LinearLayout>

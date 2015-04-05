@@ -1,0 +1,13 @@
+
+    <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+        <CheckBoxPreference android:title="@string/alertPrefString" android:key="alert_feedback" android:summary="@string/alertPrefDescritption" android:defaultValue="false"/>
+        <CheckBoxPreference android:title="@string/vibratePrefTitle" android:key="vibrate_feedback" android:summary="@string/vibratePrefDescription" android:defaultValue="false"/>
+    
+        <EditTextPreference
+            android:key="set_threshold"
+            android:title="Set Threshold Value"
+            android:summary="Set threshold value for knee joint extension angle [degrees]"
+            android:inputType="numberDecimal"
+            android:digits="01234567890."
+            android:defaultValue="90"/>
+    </PreferenceScreen>

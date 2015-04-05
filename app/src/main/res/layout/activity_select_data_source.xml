@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="#38895D">
+
+    <TextView
+        android:background="#38895D"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/title_bluetooth_connection"
+        android:textSize="30sp"
+        android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:padding="2dp" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="#38895D">
+        <TextView
+            android:id="@+id/TargetDeviceTitle"
+            android:text="@string/target_device"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"/>
+        <TextView
+            android:id="@+id/target_device_view"
+            android:text="@string/not_selected"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:layout_weight="1"
+            android:gravity="right"/>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="#38895D" >
+        <TextView
+            android:id="@+id/StatusTitle"
+            android:text="Bluetooth Status:"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"/>
+        <TextView
+            android:id="@+id/connection_status_view"
+            android:text="@string/bluetooth_connection_view_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:layout_weight="1"
+            android:gravity="right"/>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="#38895D">
+        <TextView
+            android:id="@+id/firstAccelerometerName"
+            android:text="                                          Set Threshold Value"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:textAlignment="center"
+            android:textStyle="bold"/>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="#38895D"
+        android:weightSum="1">
+        <EditText
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:paddingTop="2dp"
+            android:text="90"
+            android:id="@+id/thresholdValue"
+            android:layout_weight="0.60"
+            android:textSize="22dp"
+            android:textStyle="bold"
+            android:textAlignment="center" />
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="177dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.40"
+            android:text="Set"
+            android:id="@+id/setThresholdValueButton"
+            android:onClick="setThresholdValue" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_weight="1"
+        android:weightSum="1">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/mybutton"
+            android:text="Calculations"
+            android:id="@+id/buttonCalculate"
+            android:layout_gravity="bottom"
+            android:onClick="onClickCalculations" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/select_device_button"
+            android:text="Select Device"
+            android:background="@drawable/mybutton"
+            android:layout_height="40dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:onClick="onClickSlectTarget" />
+        <Button
+            android:id="@+id/connect_button"
+            android:text="@string/connect"
+            android:background="@drawable/mybutton"
+            android:onClick="onClickConnect"
+            android:layout_height="40dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:layout_marginTop="5dp"/>
+    </LinearLayout>
+
+</LinearLayout>

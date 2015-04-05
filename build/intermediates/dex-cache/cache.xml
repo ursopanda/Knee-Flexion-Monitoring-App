@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/ursopanda/AndroidStudioProjects/SmartWear2.2(MagnetometerData)/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/libs/internal_impl-20.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d">
+        <dex dex="/Users/ursopanda/AndroidStudioProjects/SmartWear2.2(MagnetometerData)/app/build/intermediates/pre-dexed/debug/internal_impl-20.0.0-7df8f1e26d484819b3674d11cb6da4beac0a99c0.jar" />
+    </item>
+    <item
+        jar="/Users/ursopanda/AndroidStudioProjects/SmartWear2.2(MagnetometerData)/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="8694693636ab36910c8100ce527c258ff3ebece0">
+        <dex dex="/Users/ursopanda/AndroidStudioProjects/SmartWear2.2(MagnetometerData)/app/build/intermediates/pre-dexed/debug/classes-4b49258694582309ca9d407878b48a977c13dd68.jar" />
+    </item>
+    <item
+        jar="/Users/ursopanda/AndroidStudioProjects/SmartWear2.2(MagnetometerData)/app/libs/achartengine-1.1.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="9932e3fb9fbe54e80873e77f72a99f79e33b3250">
+        <dex dex="/Users/ursopanda/AndroidStudioProjects/SmartWear2.2(MagnetometerData)/app/build/intermediates/pre-dexed/debug/achartengine-1.1.0-e536bbdc6dc04dd461d48dd20a8dcdbdcbbfe834.jar" />
+    </item>
+    <item
+        jar="/Applications/Android Studio.app/sdk/extras/android/m2repository/com/android/support/support-annotations/20.0.0/support-annotations-20.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa">
+        <dex dex="/Users/ursopanda/AndroidStudioProjects/SmartWear2.2(MagnetometerData)/app/build/intermediates/pre-dexed/debug/support-annotations-20.0.0-bca9cd8c8082330ef7549e0398af852faae531fd.jar" />
+    </item>
+    <item
+        jar="/Users/ursopanda/AndroidStudioProjects/SmartWear2.2(MagnetometerData)/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/20.0.0/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="f21927d22fe31889ecce94dd697a2e75b137e0ef">
+        <dex dex="/Users/ursopanda/AndroidStudioProjects/SmartWear2.2(MagnetometerData)/app/build/intermediates/pre-dexed/debug/classes-cb9a64f862f7515f24086a2b29d8885d545b37dd.jar" />
+    </item>
+
+</items>
