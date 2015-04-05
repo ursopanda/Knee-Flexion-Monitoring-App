@@ -254,7 +254,6 @@ public class DataSourceActivity extends Activity implements OnGestureListener{
 
 	public void onLongPress(MotionEvent e) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX,
