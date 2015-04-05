@@ -228,6 +228,12 @@ public class DataSourceActivity extends Activity implements OnGestureListener{
         }
     }
 
+    // onClick functions, that will transfer us to statistics view
+    public void onClickStatistics(View v) {
+        Intent intent = new Intent(this, DisplayStatistics.class);
+        startActivity(intent);
+    }
+
     //onClick function, that will set the Threshold Value for Knee Joint extension's angle
     public void setThresholdValue(View v) {
         EditText thresholdValueTextView = (EditText) findViewById(R.id.thresholdValue);

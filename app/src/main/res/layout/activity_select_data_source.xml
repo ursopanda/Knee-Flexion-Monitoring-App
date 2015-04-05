@@ -109,14 +109,33 @@
         android:layout_marginRight="20dp"
         android:layout_weight="1"
         android:weightSum="1">
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/mybutton"
-            android:text="Calculations"
             android:id="@+id/buttonCalculate"
-            android:layout_gravity="bottom"
+            android:text="Calculations"
+            android:background="@drawable/mybutton"
+            android:layout_height="40dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             android:onClick="onClickCalculations" />
+        <Button
+            android:id="@+id/buttonStatistics"
+            android:text="@string/statistics"
+            android:background="@drawable/mybutton"
+            android:onClick="onClickStatistics"
+            android:layout_height="40dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:layout_marginTop="5dp"/>
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
@@ -145,5 +164,4 @@
             android:layout_margin="5dp"
             android:layout_marginTop="5dp"/>
     </LinearLayout>
-
 </LinearLayout>
