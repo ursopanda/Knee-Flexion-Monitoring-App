@@ -76,25 +76,6 @@ public class DataSourceActivity extends Activity implements OnGestureListener{
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
-
-        // DB Testing
-        Databasehandler db = new Databasehandler(this);
-      //  db.onUpgrade();
-        // Adding values to DB - Just for TESTING
-//        db.addFlexionStats(new FlexionStats(90));
-//        db.addFlexionStats(new FlexionStats(45));
-//        db.addFlexionStats(new FlexionStats(102));
-        // Getting these values back
-       // db.getAllFlexionStats();
-//        db.deleteFlexionStats();
-//        db.getAllFlexionStats();
-//        db.addFlexionStats(new FlexionStats(90));
-//        db.addFlexionStats(new FlexionStats(44));
-//        db.addFlexionStats(new FlexionStats(101));
-//        db.getAllFlexionStats();
-        db.getMaxFlexionValue();
-        db.getAverageFlexionValue();
-
         super.onCreate(savedInstanceState); // call for super class method
         setContentView(R.layout.activity_select_data_source); // set content view from xml file
         //get application object
@@ -158,34 +139,8 @@ public class DataSourceActivity extends Activity implements OnGestureListener{
     //callback that inflates option menu, when menu button is pressed
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.activity_bluetooth_connection, menu);
-//        return true;
         return false;
     }
-    // callback that is called when item from option menu is selected
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle item selection
-//        switch (item.getItemId()) { //check selected items ID
-////            case R.id.processing_activity: //in case of processing activiy item selected
-////                Intent intent1 = new Intent(this, ProcessingActivity.class); // create intent to start ProcessingActivity
-////                startActivity(intent1); // start Activity
-////                return true;
-////            case R.id.drawing_accivity:// in case of drawing activity item selected
-////            	Intent intent2 = new Intent(this, DrawingActivity.class); //create intent to start Drawing activity
-////            	startActivity(intent2); // start drawing activity
-////            	return true;
-//            case R.id.settings: // in case of settings activity selected
-//            	Intent intent3 = new Intent(this, PreferencesActivity.class);
-//            	startActivity(intent3);
-//            	return true;
-////            case R.id.statistics:
-////            	Intent intent4 = new Intent(this, PostureStatisticsActivity.class);
-////            	startActivity(intent4);
-////            	return true;
-//            default:
-//                return false;
-//        }
-//    }
     
     // button callbacks
     //on click button Select Target Device

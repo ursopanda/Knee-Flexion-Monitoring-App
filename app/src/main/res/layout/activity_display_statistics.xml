@@ -41,7 +41,7 @@
             android:textStyle="bold" />
         <TextView
             android:background="@drawable/back"
-            android:id="@+id/maxFlexionValue"
+            android:id="@+id/maxFlexionValueText"
             android:text="0"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
