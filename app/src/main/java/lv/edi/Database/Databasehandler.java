@@ -53,6 +53,7 @@ public class Databasehandler extends SQLiteOpenHelper {
         this.onCreate(sqLiteDatabase);
     }
 
+    // Method for pushing new Flexion values to the DB
     public void addFlexionStats(FlexionStats flexionStats) {
         // Logging
         Log.d("addBook", flexionStats.toString());
@@ -69,6 +70,8 @@ public class Databasehandler extends SQLiteOpenHelper {
         db.close();
     }
 
+    // Method for getting one certain Flexion Value,
+    // by passing id to the method
     public FlexionStats getFlexionValue(int id) {
         // Getting reference to readable DB
         SQLiteDatabase db = this.getReadableDatabase();
@@ -99,6 +102,7 @@ public class Databasehandler extends SQLiteOpenHelper {
         return flexionStats;
     }
 
+    // Method for calculating the Maximum Knee Flexion Value from the DB entries
     public int getMaxFlexionValue() {
         FlexionStats flexionStats = new FlexionStats();
         int maxValue = 0;
@@ -112,6 +116,7 @@ public class Databasehandler extends SQLiteOpenHelper {
         return maxValue;
     }
 
+    // Method to calculate an Average Knee Flexion Value from the DB entries
     public double getAverageFlexionValue() {
         FlexionStats flexionStats = new FlexionStats();
         double averageFlexionValue = 0;
@@ -126,6 +131,7 @@ public class Databasehandler extends SQLiteOpenHelper {
         return averageFlexionValue;
     }
 
+    // Method for getting all Flexion Stats from the DB
     public List<FlexionStats> getAllFlexionStats() {
         List<FlexionStats> flexionStats = new LinkedList<FlexionStats>();
 
@@ -154,6 +160,7 @@ public class Databasehandler extends SQLiteOpenHelper {
         return flexionStats;
     }
 
+    // Method for clearing the whole DB
     public void deleteFlexionStats() {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_FLEXION_ANGLES,null,null);

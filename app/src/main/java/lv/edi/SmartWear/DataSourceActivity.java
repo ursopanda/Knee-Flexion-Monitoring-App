@@ -185,7 +185,9 @@ public class DataSourceActivity extends Activity implements OnGestureListener{
 
     // onClick functions, that will transfer us to statistics view
     public void onClickStatistics(View v) {
-        Intent intent = new Intent(this, DisplayStatistics.class);
+//        Intent intent = new Intent(this, DisplayStatistics.class);
+//        startActivity(intent);
+        Intent intent = new Intent(this, GraphActivity.class);
         startActivity(intent);
     }
 

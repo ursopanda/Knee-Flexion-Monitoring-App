@@ -124,6 +124,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="lv.edi.SmartWear.DataSourceActivity" />
         </activity>
+        <activity
+            android:name=".GraphActivity"
+            android:label="@string/title_activity_graph"
+            android:parentActivityName=".DataSourceActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="lv.edi.SmartWear.DataSourceActivity" />
+        </activity>
     </application>
 
 </manifest>
