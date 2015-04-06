@@ -91,5 +91,6 @@
     <string name="statistics">Statistics</string>
     <string name="title_activity_display_statistics">DisplayStatistics</string>
     <string name="title_activity_graph">GraphActivity</string>
+    <string name="chart">Show Chart</string>
 
 </resources>

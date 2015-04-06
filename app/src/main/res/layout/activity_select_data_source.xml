@@ -66,7 +66,6 @@
         android:layout_width="match_parent"
         android:background="#38895D">
         <TextView
-            android:id="@+id/firstAccelerometerName"
             android:text="                                          Set Threshold Value"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
@@ -100,6 +99,77 @@
             android:id="@+id/setThresholdValueButton"
             android:onClick="setThresholdValue" />
     </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="#38895D"
+        android:paddingTop="50dp"
+        android:layout_weight="0.16"
+        android:weightSum="1">
+        <TextView
+            android:background="#38895D"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Statistics"
+            android:textSize="30sp"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:padding="2dp"
+            android:id="@+id/deviceNameTextView" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="#38895D">
+        <TextView
+            android:background="@drawable/back"
+            android:text=" Maximum Flexion Value     "
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="24sp"
+            android:textColor="#FFFFFF"
+            android:singleLine="false"
+            android:textStyle="bold" />
+        <TextView
+            android:background="@drawable/back"
+            android:id="@+id/maxFlexionValueText"
+            android:text="0"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:textColor="#FFFFFF"
+            android:layout_weight="1"
+            android:gravity="center" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="#38895D">
+        <TextView
+            android:background="@drawable/back"
+            android:text=" Average Flexion Value        "
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="24sp"
+            android:textColor="#FFFFFF"
+            android:singleLine="false"
+            android:textStyle="bold" />
+        <TextView
+            android:background="@drawable/back"
+            android:id="@+id/avgFlexionValue"
+            android:text="0"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:textColor="#FFFFFF"
+            android:layout_weight="1"
+            android:gravity="center" />
+    </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -128,7 +198,7 @@
             android:onClick="onClickCalculations" />
         <Button
             android:id="@+id/buttonStatistics"
-            android:text="@string/statistics"
+            android:text="@string/chart"
             android:background="@drawable/mybutton"
             android:onClick="onClickStatistics"
             android:layout_height="40dp"
