@@ -5,18 +5,11 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
-import android.media.Ringtone;
-import android.media.RingtoneManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Vibrator;
-import android.provider.ContactsContract;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
-
 import lv.edi.Database.Databasehandler;
 import lv.edi.Database.FlexionStats;
 
@@ -303,10 +296,10 @@ public class DisplayCalculations extends Activity {
                                 if (thresholdCounter == 2) {
                                     alertDialog.show();
                                     thresholdCounter++;
-                                } else if ((thresholdCounter == 4)&&(alertDialog.isShowing() == false)) {
+                                } else if ((thresholdCounter == 4)&&(!alertDialog.isShowing())) {
                                     alertDialog2.show();
                                     thresholdCounter++;
-                                } else if ((thresholdCounter == 5) && ((alertDialog.isShowing() == false) && (alertDialog2.isShowing() == false))) {
+                                } else if ((thresholdCounter == 5) && ((!alertDialog.isShowing()) && (!alertDialog2.isShowing()))) {
                                     thresholdCounter = 0;
                                     alertDialog3.show();
                                 }
