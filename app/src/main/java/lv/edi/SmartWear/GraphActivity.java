@@ -17,8 +17,17 @@ import android.graphics.Typeface;
 import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 
+import java.util.List;
+
+import lv.edi.Database.Databasehandler;
+import lv.edi.Database.FlexionStats;
+
 
 public class GraphActivity extends Activity {
+
+    // Getting a refference to a DB to get Flexion's values to the table
+    final Databasehandler db = new Databasehandler(this);
+
     private View mChart;
     private String[] mMonth = new String[] {
             "Jan", "Feb" , "Mar", "Apr", "May", "Jun",
@@ -30,159 +39,135 @@ public class GraphActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_graph);
 
-// Getting reference to the button btn_chart
-        Button btnChart = (Button) findViewById(R.id.btn_chart);
-
-// Defining click event listener for the button btn_chart
-        OnClickListener clickListener = new OnClickListener() {
-
+        // Thread is used to update a line chart
+        Thread t = new Thread() {
             @Override
-            public void onClick(View v) {
-// Draw the Income vs Expense Chart
-                openChart();
-            }
+            public void run() {
+                try {
+                    while (!isInterrupted()) {
+                        Thread.sleep(1000);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                // Draw a line chart
+                                openChart();
+                            }
+                        });
+                    }
+                } catch (InterruptedException e) {
+                }
+            };
         };
-
-// Setting event click listener for the button btn_chart of the MainActivity layout
-        btnChart.setOnClickListener(clickListener);
-
+        t.start();
     }
 
+    // Method used to create and draw charts
     private void openChart(){
-        int[] x = { 0,1,2,3,4,5,6,7, 8, 9, 10, 11 };
-        int[] income = { 2000,2500,2700,3000,2800,3500,3700,3800, 0,0,0,0};
-        int[] expense = {2200, 2700, 2900, 2800, 2600, 3000, 3300, 3400, 0, 0, 0, 0 };
-
-// Creating an XYSeries for Income
-        XYSeries incomeSeries = new XYSeries("Income");
-// Creating an XYSeries for Expense
-        XYSeries expenseSeries = new XYSeries("Expense");
-// Adding data to Income and Expense Series
-        for(int i=0;i<x.length;i++){
-            incomeSeries.add(i,income[i]);
-            expenseSeries.add(i,expense[i]);
+        // Creating an XYSeries for Flexion Values from DB
+        XYSeries flexionValueSeries = new XYSeries("Flexion");
+        // Getting all the flexion values that are stored in DB
+        List<FlexionStats> flexionStatsList = db.getAllFlexionStats();
+        for (int i=0; i < flexionStatsList.size(); i++) {
+            flexionValueSeries.add(i,flexionStatsList.get(i).getFlexion_value());
         }
 
-// Creating a dataset to hold each series
+        // Creating a dataset to hold each series
         XYMultipleSeriesDataset dataset = new XYMultipleSeriesDataset();
-// Adding Income Series to the dataset
-        dataset.addSeries(incomeSeries);
-// Adding Expense Series to dataset
-        dataset.addSeries(expenseSeries);
+        dataset.addSeries(flexionValueSeries);
 
-// Creating XYSeriesRenderer to customize incomeSeries
-        XYSeriesRenderer incomeRenderer = new XYSeriesRenderer();
-        incomeRenderer.setColor(Color.CYAN); //color of the graph set to cyan
-        incomeRenderer.setFillPoints(true);
-        incomeRenderer.setLineWidth(2f);
-        incomeRenderer.setDisplayChartValues(true);
-//setting chart value distance
-        incomeRenderer.setDisplayChartValuesDistance(10);
-//setting line graph point style to circle
-        incomeRenderer.setPointStyle(PointStyle.CIRCLE);
-//setting stroke of the line chart to solid
-        incomeRenderer.setStroke(BasicStroke.SOLID);
+        // Creating XYSeriesRenderer to customize flexionValueSeries
+        XYSeriesRenderer flexionRenderer = new XYSeriesRenderer();
+        flexionRenderer.setColor(Color.CYAN); // setting color of the graph
+        flexionRenderer.setFillPoints(true);
+        flexionRenderer.setLineWidth(2f);
+        flexionRenderer.setDisplayChartValues(true);
+        flexionRenderer.setDisplayChartValuesDistance(10); // setting chart value distance
+        flexionRenderer.setPointStyle(PointStyle.CIRCLE); // setting line graph point style to circle
+        flexionRenderer.setStroke(BasicStroke.SOLID); // setting stroke of the line to solid
 
-// Creating XYSeriesRenderer to customize expenseSeries
-        XYSeriesRenderer expenseRenderer = new XYSeriesRenderer();
-        expenseRenderer.setColor(Color.GREEN);
-        expenseRenderer.setFillPoints(true);
-        expenseRenderer.setLineWidth(2f);
-        expenseRenderer.setDisplayChartValues(true);
-//setting line graph point style to circle
-        expenseRenderer.setPointStyle(PointStyle.SQUARE);
-//setting stroke of the line chart to solid
-        expenseRenderer.setStroke(BasicStroke.SOLID);
-
-// Creating a XYMultipleSeriesRenderer to customize the whole chart
+        // Creating a XYMultipleSeriesRenderer to customize the whole chart
         XYMultipleSeriesRenderer multiRenderer = new XYMultipleSeriesRenderer();
         multiRenderer.setXLabels(0);
-        multiRenderer.setChartTitle("Income vs Expense Chart");
-        multiRenderer.setXTitle("Year 2014");
-        multiRenderer.setYTitle("Amount in Dollars");
+        multiRenderer.setChartTitle("Flexion Value Chart");
+        multiRenderer.setXTitle("");
+        multiRenderer.setYTitle("Flexion Angle");
 
-/***
- * Customizing graphs
- */
-//setting text size of the title
+        /***
+         * Customizing graphs
+         */
+        // Setting text size of the title
         multiRenderer.setChartTitleTextSize(28);
-//setting text size of the axis title
+        // Setting text size of the axis title
         multiRenderer.setAxisTitleTextSize(24);
-//setting text size of the graph lable
+        // Setting text size of the graph lable
         multiRenderer.setLabelsTextSize(24);
-//setting zoom buttons visiblity
-        multiRenderer.setZoomButtonsVisible(false);
-//setting pan enablity which uses graph to move on both axis
-        multiRenderer.setPanEnabled(false, false);
-//setting click false on graph
-        multiRenderer.setClickEnabled(false);
-//setting zoom to false on both axis
-        multiRenderer.setZoomEnabled(false, false);
-//setting lines to display on y axis
+        // Setting zoom buttons visiblity
+        multiRenderer.setZoomButtonsVisible(true);
+        // Setting pan enablity which uses graph to move on both axis
+        multiRenderer.setPanEnabled(true, true);
+        // Setting click false on graph
+        multiRenderer.setClickEnabled(true);
+        // Setting zoom to false on both axis
+        multiRenderer.setZoomEnabled(true, true);
+        // Setting lines to display on y axis
         multiRenderer.setShowGridY(true);
-//setting lines to display on x axis
+        // Setting lines to display on x axis
         multiRenderer.setShowGridX(true);
-//setting legend to fit the screen size
+        // Setting legend to fit the screen size
         multiRenderer.setFitLegend(true);
-//setting displaying line on grid
+        // Setting displaying line on grid
         multiRenderer.setShowGrid(true);
-//setting zoom to false
-        multiRenderer.setZoomEnabled(false);
-//setting external zoom functions to false
-        multiRenderer.setExternalZoomEnabled(false);
-//setting displaying lines on graph to be formatted(like using graphics)
+        // Setting zoom to false
+        multiRenderer.setZoomEnabled(true);
+        // Setting external zoom functions to false
+        multiRenderer.setExternalZoomEnabled(true);
+        // Setting displaying lines on graph to be formatted(like using graphics)
         multiRenderer.setAntialiasing(true);
-//setting to in scroll to false
+        // Setting to in scroll to false
         multiRenderer.setInScroll(false);
-//setting to set legend height of the graph
+        // Setting to set legend height of the graph
         multiRenderer.setLegendHeight(30);
-//setting x axis label align
+        // Setting x axis label align
         multiRenderer.setXLabelsAlign(Align.CENTER);
-//setting y axis label to align
+        // Setting y axis label to align
         multiRenderer.setYLabelsAlign(Align.LEFT);
-//setting text style
+        // Setting text style
         multiRenderer.setTextTypeface("sans_serif", Typeface.NORMAL);
-//setting no of values to display in y axis
+        // Setting no of values to display in y axis
         multiRenderer.setYLabels(10);
-// setting y axis max value, Since i'm using static values inside the graph so i'm setting y max value to 4000.
-// if you use dynamic values then get the max y value and set here
-        multiRenderer.setYAxisMax(4000);
-//setting used to move the graph on xaxiz to .5 to the right
+        // Setting y axis max value, Since i'm using static values inside the graph so i'm setting y max value to 4000.
+        // if you use dynamic values then get the max y value and set here
+        multiRenderer.setYAxisMax(150);
+        // Setting used to move the graph on xaxiz to .5 to the right
         multiRenderer.setXAxisMin(-0.5);
-//setting used to move the graph on xaxiz to .5 to the right
+        // Setting used to move the graph on xaxiz to .5 to the right
         multiRenderer.setXAxisMax(11);
-//setting bar size or space between two bars
-//multiRenderer.setBarSpacing(0.5);
-//Setting background color of the graph to transparent
+        // Setting bar size or space between two bars
+        // multiRenderer.setBarSpacing(0.5);
+        // Setting background color of the graph to transparent
         multiRenderer.setBackgroundColor(Color.TRANSPARENT);
-//Setting margin color of the graph to transparent
+        // Setting margin color of the graph to transparent
         multiRenderer.setMarginsColor(getResources().getColor(R.color.transparent_background));
         multiRenderer.setApplyBackgroundColor(true);
         multiRenderer.setScale(2f);
-//setting x axis point size
+        // setting x axis point size
         multiRenderer.setPointSize(4f);
-//setting the margin size for the graph in the order top, left, bottom, right
+        // setting the margin size for the graph in the order top, left, bottom, right
         multiRenderer.setMargins(new int[]{30, 30, 30, 30});
 
-        for(int i=0; i< x.length;i++){
-            multiRenderer.addXTextLabel(i, mMonth[i]);
-        }
+        // Adding flexionRenderer to multipleRenderer
+        // Note: The order of adding dataseries to dataset and renderers to multipleRenderer
+        // should be same
+        multiRenderer.addSeriesRenderer(flexionRenderer);
 
-// Adding incomeRenderer and expenseRenderer to multipleRenderer
-// Note: The order of adding dataseries to dataset and renderers to multipleRenderer
-// should be same
-        multiRenderer.addSeriesRenderer(incomeRenderer);
-        multiRenderer.addSeriesRenderer(expenseRenderer);
-
-//this part is used to display graph on the xml
+        // This part is used to display graph on the xml
         LinearLayout chartContainer = (LinearLayout) findViewById(R.id.chart);
-//remove any views before u paint the chart
+        // Remove any views before u paint the chart
         chartContainer.removeAllViews();
-//drawing bar chart
+        // Drawing bar chart
         mChart = ChartFactory.getLineChartView(GraphActivity.this, dataset, multiRenderer);
-//adding the view to the linearlayout
+        // Adding the view to the linearlayout
         chartContainer.addView(mChart);
-
     }
 
 }

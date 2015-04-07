@@ -20,6 +20,7 @@ public class DisplayCalculations extends Activity {
     private SmartWearApplication application;
     private Vibrator myVib;
     private int thresholdCounter = 0;
+    private int previousFlexionValue = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -293,18 +294,24 @@ public class DisplayCalculations extends Activity {
                                     flexionAngle5.setTextColor(Color.RED);
                                     thresholdCounter++;
                                 } else {
+                                    // Hard-coding the checking for notifications show-up.
+                                    // Will help dealing with notifications popping-up all the time
+                                    previousFlexionValue = (int) degrees5;
                                     flexionAngle5.setTextColor(Color.WHITE);
                                 }
                                 // Showing Alert Dialogs, according to overcoming the threshold value of flexion's angle
-                                if (thresholdCounter == 2) {
+                                if (thresholdCounter == 2 && previousFlexionValue != 0) {
                                     alertDialog.show();
                                     thresholdCounter++;
-                                } else if ((thresholdCounter == 4)&&(!alertDialog.isShowing())) {
+                                    previousFlexionValue = 0;
+                                } else if ((thresholdCounter == 4)&&(!alertDialog.isShowing()) && previousFlexionValue != 0) {
                                     alertDialog2.show();
                                     thresholdCounter++;
-                                } else if ((thresholdCounter == 5) && ((!alertDialog.isShowing()) && (!alertDialog2.isShowing()))) {
+                                    previousFlexionValue = 0;
+                                } else if ((thresholdCounter == 5) && ((!alertDialog.isShowing()) && (!alertDialog2.isShowing())) && previousFlexionValue != 0) {
                                     thresholdCounter = 0;
                                     alertDialog3.show();
+                                    previousFlexionValue = 0;
                                 }
                             }
                         });

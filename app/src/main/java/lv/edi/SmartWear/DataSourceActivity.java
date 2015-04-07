@@ -72,7 +72,6 @@ public class DataSourceActivity extends Activity implements OnGestureListener{
 			}
 		}
     };
-	//
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {

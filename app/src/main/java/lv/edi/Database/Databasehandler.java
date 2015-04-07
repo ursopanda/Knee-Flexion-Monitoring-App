@@ -38,7 +38,8 @@ public class Databasehandler extends SQLiteOpenHelper {
         String CREATE_FLEXION_ANGLES_TABLE = "CREATE TABLE flexionAngles ( " +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "flexion_value INTEGER NOT_NULL, " +
-                "flexion_time DEFAULT CURRENT_TIMESTAMP )";
+                "flexion_time DEFAULT CURRENT_TIMESTAMP), " +
+                "flexion_date DATE DEFAULT (datetime('now','localtime'))";
 
         // create flexionAngles table
         sqLiteDatabase.execSQL(CREATE_FLEXION_ANGLES_TABLE);

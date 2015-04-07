@@ -197,6 +197,56 @@
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="#38895D">
+        <TextView
+            android:background="@drawable/back"
+            android:text=" Longest Rehab Session      "
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="24sp"
+            android:textColor="#FFFFFF"
+            android:singleLine="false"
+            android:textStyle="bold" />
+        <TextView
+            android:background="@drawable/back"
+            android:id="@+id/longestRehabSession"
+            android:text="87 minutes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:textColor="#FFFFFF"
+            android:layout_weight="1"
+            android:gravity="center" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="#38895D">
+        <TextView
+            android:background="@drawable/back"
+            android:text=" Shortest Rehab Session     "
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="24sp"
+            android:textColor="#FFFFFF"
+            android:singleLine="false"
+            android:textStyle="bold" />
+        <TextView
+            android:background="@drawable/back"
+            android:id="@+id/shortestRehabSession"
+            android:text="4 minutes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:textColor="#FFFFFF"
+            android:layout_weight="1"
+            android:gravity="center" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginTop="150dp"
