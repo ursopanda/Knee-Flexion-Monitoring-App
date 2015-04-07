@@ -3,7 +3,6 @@ package lv.edi.SmartWear;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import org.achartengine.ChartFactory;
 import org.achartengine.chart.PointStyle;
 import org.achartengine.model.XYMultipleSeriesDataset;
@@ -14,7 +13,6 @@ import org.achartengine.renderer.XYSeriesRenderer;
 import android.graphics.Color;
 import android.graphics.Paint.Align;
 import android.graphics.Typeface;
-import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 
 import java.util.List;
@@ -81,7 +79,7 @@ public class GraphActivity extends Activity {
         flexionRenderer.setFillPoints(true);
         flexionRenderer.setLineWidth(2f);
         flexionRenderer.setDisplayChartValues(true);
-        flexionRenderer.setDisplayChartValuesDistance(10); // setting chart value distance
+        flexionRenderer.setDisplayChartValuesDistance(5); // setting chart value distance
         flexionRenderer.setPointStyle(PointStyle.CIRCLE); // setting line graph point style to circle
         flexionRenderer.setStroke(BasicStroke.SOLID); // setting stroke of the line to solid
 
@@ -134,12 +132,12 @@ public class GraphActivity extends Activity {
         // Setting text style
         multiRenderer.setTextTypeface("sans_serif", Typeface.NORMAL);
         // Setting no of values to display in y axis
-        multiRenderer.setYLabels(10);
+        multiRenderer.setYLabels(15);
         // Setting y axis max value, Since i'm using static values inside the graph so i'm setting y max value to 4000.
         // if you use dynamic values then get the max y value and set here
         multiRenderer.setYAxisMax(150);
         // Setting used to move the graph on xaxiz to .5 to the right
-        multiRenderer.setXAxisMin(-0.5);
+        multiRenderer.setXAxisMin(0);
         // Setting used to move the graph on xaxiz to .5 to the right
         multiRenderer.setXAxisMax(11);
         // Setting bar size or space between two bars
@@ -149,7 +147,7 @@ public class GraphActivity extends Activity {
         // Setting margin color of the graph to transparent
         multiRenderer.setMarginsColor(getResources().getColor(R.color.transparent_background));
         multiRenderer.setApplyBackgroundColor(true);
-        multiRenderer.setScale(2f);
+        multiRenderer.setScale(1f);
         // setting x axis point size
         multiRenderer.setPointSize(4f);
         // setting the margin size for the graph in the order top, left, bottom, right
