@@ -99,7 +99,37 @@ public class DataSourceActivity extends Activity implements OnGestureListener{
         }
         
         gDetector = new GestureDetector(getApplicationContext(), this); // instantiate gesture detector
-        
+
+        // Getting a refference to a DB to get Flexion's values to the table
+        final Databasehandler db = new Databasehandler(this);
+        // Thread is used to update table data every second
+        Thread t = new Thread() {
+            @Override
+            public void run() {
+                try {
+                    while (!isInterrupted()) {
+                        Thread.sleep(1000);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                // Getting current Knee's Flexion Value to the table
+                                TextView currentFlexionValueText = (TextView) findViewById(R.id.currentFlexionValueText);
+                                currentFlexionValueText.setText(String.valueOf(DisplayCalculations.flexionsAngleValue));
+                                // Getting Flexion's Maximum value to the table
+                                TextView maxFlexionValueText = (TextView) findViewById(R.id.maxFlexionValueText);
+                                maxFlexionValueText.setText(String.valueOf(db.getMaxFlexionValue()));
+                                // Getting Flexion's Average value to the table
+                                TextView avgFlexionValueText = (TextView) findViewById(R.id.avgFlexionValue);
+                                // Parsing from double to String to put it into the TextView
+                                avgFlexionValueText.setText(String.valueOf(db.getAverageFlexionValue()));
+                            }
+                        });
+                    }
+                } catch (InterruptedException e) {
+                }
+            };
+        };
+        t.start();
     }
     // on start callback
     public void onStart(){

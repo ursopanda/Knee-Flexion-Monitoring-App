@@ -16,6 +16,7 @@ import lv.edi.Database.FlexionStats;
 
 public class DisplayCalculations extends Activity {
 
+    public static int flexionsAngleValue = 0;
     private SmartWearApplication application;
     private Vibrator myVib;
     private int thresholdCounter = 0;
@@ -274,6 +275,7 @@ public class DisplayCalculations extends Activity {
                                 double cos5 = x5;
                                 double degrees5 = Math.toDegrees(Math.acos(cos5));
                                 degrees5 = Math.round(degrees5);
+                                flexionsAngleValue = (int) degrees5;
                                 // Showing flexion angle's value to user
                                 String flexionAngleText5 = Double.toString(degrees5);
                                 TextView flexionAngle5 = (TextView) findViewById(R.id.flexionAngle5);
@@ -281,6 +283,7 @@ public class DisplayCalculations extends Activity {
                                 // ------------------------------------------------------------------------------------------------------------
                                 // Database stuff: Putting calculated angle's value to DB FlexionAngles Table
                                 db.addFlexionStats(new FlexionStats((int) degrees5));
+
                                 // Comparing calculated flexion's angle to threshold value
                                 if (degrees5 > DataSourceActivity.thresholdValue) {
                                     // TO-DO: Beep notification if threshold value has been reached
