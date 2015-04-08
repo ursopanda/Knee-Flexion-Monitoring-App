@@ -14,9 +14,7 @@ import android.graphics.Color;
 import android.graphics.Paint.Align;
 import android.graphics.Typeface;
 import android.widget.LinearLayout;
-
 import java.util.List;
-
 import lv.edi.Database.Databasehandler;
 import lv.edi.Database.FlexionStats;
 
