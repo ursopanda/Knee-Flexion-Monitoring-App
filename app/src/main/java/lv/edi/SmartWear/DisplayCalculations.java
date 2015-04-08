@@ -79,7 +79,8 @@ public class DisplayCalculations extends Activity {
                             @Override
                             public void run() {
                                 // -------------------------------------------------------------------------
-                                // FIRST ACCELEROMETER RAW DATA
+                                // FIRST SENSOR RAW AND NORM DATA
+                                // ACCELEROMETER DATA
                                 // Adding X Axis raw value
 //                                TextView rawFirstAccXData = (TextView) findViewById(R.id.firstAccRawXValue);
 //                                float rawFirstAccXValue = application.sensorArray[0].getAccRawX();
@@ -110,8 +111,13 @@ public class DisplayCalculations extends Activity {
                                 float normFirstAccZValue = application.sensorArray[0].getAccNormZ();
                                 String normFirstAccZText = Float.toString(normFirstAccZValue);
                                 normFirstAccZData.setText(normFirstAccZText);
+                                // MAGNETOMETER DATA
+                                float normFirstMagXData = application.sensorArray[0].getMagNormX();
+                                float normFirstMagYData = application.sensorArray[0].getMagNormY();
+                                float normFirstMagZData = application.sensorArray[0].getMagNormZ();
                                 // -------------------------------------------------------------------------
-                                // SECOND ACCELEROMETER RAW DATA
+                                // SECOND SENSOR RAW AND NORM DATA
+                                // ACCELEROMETER DATA
                                 // Adding X Axis raw value
 //                                TextView rawSecondAccXData = (TextView) findViewById(R.id.secondAccRawXValue);
 //                                float rawSecondAccXValue = application.sensorArray[1].getAccRawX();
@@ -142,8 +148,13 @@ public class DisplayCalculations extends Activity {
                                 float normSecondAccZValue = application.sensorArray[1].getAccNormZ();
                                 String normSecondAccZText = Float.toString(normSecondAccZValue);
                                 normSecondAccZData.setText(normSecondAccZText);
+                                // MAGNETOMETER DATA
+                                float normSecondMagXData = application.sensorArray[1].getMagNormX();
+                                float normSecondMagYData = application.sensorArray[1].getMagNormY();
+                                float normSecondMagZData = application.sensorArray[1].getMagNormZ();
                                 // -----------------------------------------------------------------------------
-                                // THIRD ACCELEROMETER NORM DATA
+                                // THIRD SENSOR RAW AND NORM DATA
+                                // ACCELEROMETER DATA
                                 // Adding X Axis norm data
                                 TextView normThirdAccXData = (TextView) findViewById(R.id.thirdAccNormXValue);
                                 float normThirdAccXValue = application.sensorArray[2].getAccNormX();
@@ -159,8 +170,13 @@ public class DisplayCalculations extends Activity {
                                 float normThirdAccZValue = application.sensorArray[2].getAccNormZ();
                                 String normThirdAccZText = Float.toString(normThirdAccZValue);
                                 normThirdAccZData.setText(normThirdAccZText);
+                                // MAGNETOMETER DATA
+                                float normThirdMagXData = application.sensorArray[2].getMagNormX();
+                                float normThirdMagYData = application.sensorArray[2].getMagNormY();
+                                float normThirdMagZData = application.sensorArray[2].getMagNormZ();
                                 // -----------------------------------------------------------------------------
-                                // FOURTH ACCELEROMETER NORM DATA
+                                // FOURTH SENSOR RAW AND NORM DATA
+                                // ACCELEROMETER DATA
                                 // Adding X Axis norm data
                                 TextView normFourthAccXData = (TextView) findViewById(R.id.fourthAccNormXValue);
                                 float normFourthAccXValue = application.sensorArray[3].getAccNormX();
@@ -176,6 +192,10 @@ public class DisplayCalculations extends Activity {
                                 float normFourthAccZValue = application.sensorArray[3].getAccNormZ();
                                 String normFourthAccZText = Float.toString(normFourthAccZValue);
                                 normFourthAccZData.setText(normFourthAccZText);
+                                // MAGNETOMETER DATA
+                                float normFourthMagXData = application.sensorArray[3].getMagNormX();
+                                float normFourthMagYData = application.sensorArray[3].getMagNormY();
+                                float normFourthMagZData = application.sensorArray[3].getMagNormZ();
                                 // ------------------------------------------------------------------------------------------------------------
                                 // Calculating and adding tilt angle between accelerometers
                                 // ALGORITHM NUMBER 1: ANGLE BETWEEN First and Third Accelerometer
