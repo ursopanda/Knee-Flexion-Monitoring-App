@@ -113,7 +113,11 @@ public class DataSourceActivity extends Activity implements OnGestureListener{
                             public void run() {
                                 // Getting current Knee's Flexion Value to the table
                                 TextView currentFlexionValueText = (TextView) findViewById(R.id.currentFlexionValueText);
-                                currentFlexionValueText.setText(String.valueOf(DisplayCalculations.flexionsAngleValue));
+                                // checking if there is running bluetooth connection
+                                if(application.bluetoothService.isConnected())
+                                    currentFlexionValueText.setText(String.valueOf(DisplayCalculations.flexionsAngleValue));
+                                else
+                                    currentFlexionValueText.setText("-");
                                 // Getting Flexion's Maximum value to the table
                                 TextView maxFlexionValueText = (TextView) findViewById(R.id.maxFlexionValueText);
                                 maxFlexionValueText.setText(String.valueOf(db.getMaxFlexionValue()));

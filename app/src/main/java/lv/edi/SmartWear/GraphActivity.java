@@ -36,25 +36,25 @@ public class GraphActivity extends Activity {
         setContentView(R.layout.activity_graph);
 
         // Thread is used to update a line chart
-        Thread t = new Thread() {
-            @Override
-            public void run() {
-                try {
-                    while (!isInterrupted()) {
-                        Thread.sleep(1000);
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
+//        Thread t = new Thread() {
+//            @Override
+//            public void run() {
+//                try {
+//                    while (!isInterrupted()) {
+//                        Thread.sleep(1000);
+//                        runOnUiThread(new Runnable() {
+//                            @Override
+//                            public void run() {
                                 // Draw a line chart
                                 openChart();
-                            }
-                        });
-                    }
-                } catch (InterruptedException e) {
-                }
-            };
-        };
-        t.start();
+//                            }
+//                        });
+//                    }
+//                } catch (InterruptedException e) {
+//                }
+//            };
+//        };
+//        t.start();
     }
 
     // Method used to create and draw charts

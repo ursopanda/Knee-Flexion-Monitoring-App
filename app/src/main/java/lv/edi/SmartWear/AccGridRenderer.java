@@ -23,8 +23,7 @@ class AccGridRenderer implements GLSurfaceView.Renderer
 				gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
 				gl.glEnableClientState(GL10.GL_COLOR_ARRAY); 
 				gl.glDisable(GL10.GL_CULL_FACE);
-				
-				//
+
 			    GLU.gluLookAt(gl, (float)viewPointVector[0], (float)viewPointVector[1], (float)viewPointVector[2], application.currentStateSegments[(int)(SmartWearApplication.GRID_ROWS/2)][(int)(SmartWearApplication.GRID_COLS/2)].center[0], application.currentStateSegments[(int)(SmartWearApplication.GRID_ROWS/2)][(int)(SmartWearApplication.GRID_COLS/2)].center[1], application.currentStateSegments[(int)(SmartWearApplication.GRID_ROWS/2)][(int)(SmartWearApplication.GRID_COLS/2)].center[2], (float)cameraUpVector[0], (float)cameraUpVector[1], (float)cameraUpVector[2]); 	
 				mModel.draw(gl);		
 	} 

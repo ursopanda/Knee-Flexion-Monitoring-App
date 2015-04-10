@@ -136,10 +136,10 @@ public class SmartWearApplication extends Application implements OnSharedPrefere
     /** The most recently created renderer, customizing the current series. */
 
     @Override
-
     // called when application object is created
     public void onCreate(){
         super.onCreate();
+
 
         // creating sensor objects, and filling sensor arrays;
         // create directory for log files
