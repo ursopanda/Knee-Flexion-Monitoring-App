@@ -100,7 +100,9 @@ public class Databasehandler extends SQLiteOpenHelper {
             Log.d("getFlexionStats(" + id + ")", flexionStats.toString());
             // Returning flexionStats object
         }
+        cursor.close();
         return flexionStats;
+
     }
 
     // Method for calculating the Maximum Knee Flexion Value from the DB entries
@@ -114,6 +116,7 @@ public class Databasehandler extends SQLiteOpenHelper {
             // Log
             Log.d("getMaxFlexionValue", flexionStats.toString());
         }
+        cursor.close();
         return maxValue;
     }
 
@@ -129,6 +132,7 @@ public class Databasehandler extends SQLiteOpenHelper {
             // Log
             Log.d("getAverageFlexionValue", flexionStats.toString());
         }
+        cursor.close();
         return averageFlexionValue;
     }
 
@@ -158,6 +162,7 @@ public class Databasehandler extends SQLiteOpenHelper {
         Log.d("getAllFlexionStats() ", flexionStats.toString());
 
         db.close();
+        cursor.close();
         return flexionStats;
     }
 

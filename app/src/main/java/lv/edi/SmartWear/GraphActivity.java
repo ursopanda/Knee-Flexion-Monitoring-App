@@ -25,10 +25,6 @@ public class GraphActivity extends Activity {
     final Databasehandler db = new Databasehandler(this);
 
     private View mChart;
-    private String[] mMonth = new String[] {
-            "Jan", "Feb" , "Mar", "Apr", "May", "Jun",
-            "Jul", "Aug" , "Sep", "Oct", "Nov", "Dec"
-    };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

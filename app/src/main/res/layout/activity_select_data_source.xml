@@ -254,6 +254,18 @@
         android:layout_marginRight="20dp"
         android:layout_weight="1"
         android:weightSum="1">
+        <TextView
+            android:id="@+id/realTimeKneeFlexionValue"
+            android:background="@drawable/back"
+            android:text="0"
+            android:layout_height="match_parent"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:textSize="60sp"
+            android:textColor="#FFFFFF"
+            android:singleLine="false"
+            android:textStyle="bold" />
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
