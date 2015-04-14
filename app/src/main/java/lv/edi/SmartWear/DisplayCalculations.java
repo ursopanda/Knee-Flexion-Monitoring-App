@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.TextView;
 import lv.edi.Database.Databasehandler;
 import lv.edi.Database.FlexionStats;
+import lv.edi.SmartWearProcessing.SensorDataProcessing;
 
 
 public class DisplayCalculations extends Activity {
@@ -67,6 +68,13 @@ public class DisplayCalculations extends Activity {
         // Show Target Device's name
         TextView textView = (TextView) findViewById(R.id.deviceNameTextView);
         textView.setText(message);
+
+        // Trying to get Rotation Matrix using TRIAD algorithm
+  //      SensorDataProcessing sensorData = new SensorDataProcessing();
+//        float[] acc_data = {application.sensorArray[0].getAccRawX(),application.sensorArray[0].getAccRawY(),application.sensorArray[0].getAccRawZ()};
+//        float[] magn_data = {application.sensorArray[0].getMagRawX(),application.sensorArray[0].getMagRawY(),application.sensorArray[0].getMagRawZ()};
+//        float[][] rotationMatrix = sensorData.getRotationTRIAD(acc_data, magn_data);
+        //float[] result = ;
 
         // Thread is used to update TextView objects every second
         Thread t = new Thread() {
