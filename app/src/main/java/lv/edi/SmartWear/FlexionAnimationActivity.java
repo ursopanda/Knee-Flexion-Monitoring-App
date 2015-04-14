@@ -1,38 +1,43 @@
 package lv.edi.SmartWear;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Path;
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import lv.edi.Graph.Animation;
 
-public class FlexionAnimationActivity extends ActionBarActivity {
 
+public class FlexionAnimationActivity extends Activity {
+
+    private SmartWearApplication application;
+
+    /** Called when the activity is first created. */
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
+        // Reference to SmartWearApplication class, where we can get Accelerometer's Data
+        application = (SmartWearApplication)getApplication();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_flexion_animation);
-
-        // Trying to get a triangle
-
-        Canvas canvas = new Canvas();
-        Paint paint = new Paint();
-        paint.setARGB(255, 153, 29, 29);
-        paint.setStyle(Paint.Style.FILL_AND_STROKE);
-        paint.setAntiAlias(true);
-
-        Path path = new Path();
-        path.moveTo(0, 0);
-        path.lineTo(10, 100);
-        path.moveTo(0, 0);
-        path.lineTo(87, 50);
-        path.close();
-
-        canvas.drawPath(path, paint);
-    }
+            Thread t = new Thread() {
+                @Override
+                public void run() {
+                    try {
+                        while (!isInterrupted()) {
+                            Thread.sleep(200);
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    setContentView(new Animation(FlexionAnimationActivity.this));
+                                }
+                            });
+                        }
+                    } catch (InterruptedException e) {
+                    }
+                };
+            };
+            t.start();
+        }
 
 //    @Override
 //    protected void onDraw

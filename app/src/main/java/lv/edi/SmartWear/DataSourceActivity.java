@@ -22,6 +22,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 import lv.edi.Database.Databasehandler;
 import lv.edi.Database.FlexionStats;
 
@@ -113,18 +115,25 @@ public class DataSourceActivity extends Activity implements OnGestureListener{
                             public void run() {
                                 // Getting current Knee's Flexion Value to the table
                                 TextView currentFlexionValueText = (TextView) findViewById(R.id.currentFlexionValueText);
+                                TextView maxFlexionValueText = (TextView) findViewById(R.id.maxFlexionValueText);
+                                TextView avgFlexionValueText = (TextView) findViewById(R.id.avgFlexionValue);
                                 // checking if there is running bluetooth connection
-                                if(application.bluetoothService.isConnected())
+                                if(application.bluetoothService.isConnected()) {
                                     currentFlexionValueText.setText(String.valueOf(DisplayCalculations.flexionsAngleValue));
+                                    maxFlexionValueText.setText(String.valueOf(db.getMaxFlexionValue()));
+                                    avgFlexionValueText.setText(String.valueOf(db.getAverageFlexionValue()));
+                                }
                                 else
                                     currentFlexionValueText.setText("-");
                                 // Getting Flexion's Maximum value to the table
-                                TextView maxFlexionValueText = (TextView) findViewById(R.id.maxFlexionValueText);
-                                maxFlexionValueText.setText(String.valueOf(db.getMaxFlexionValue()));
+ //                               TextView maxFlexionValueText = (TextView) findViewById(R.id.maxFlexionValueText);
+                            //    maxFlexionValueText.setText(String.valueOf(db.getMaxFlexionValue()));
                                 // Getting Flexion's Average value to the table
-                                TextView avgFlexionValueText = (TextView) findViewById(R.id.avgFlexionValue);
-                                // Parsing from double to String to put it into the TextView
-                                avgFlexionValueText.setText(String.valueOf(db.getAverageFlexionValue()));
+    //                            TextView avgFlexionValueText = (TextView) findViewById(R.id.avgFlexionValue);
+                           //     // Parsing from double to String to put it into the TextView
+                                //avgFlexionValueText.setText(String.valueOf(db.getAverageFlexionValue()));
+                                TextView realTimeKneeFlexionValueText = (TextView) findViewById(R.id.realTimeKneeFlexionValue);
+                                realTimeKneeFlexionValueText.setText(String.valueOf(DisplayCalculations.flexionsAngleValue));
                             }
                         });
                     }
@@ -228,7 +237,24 @@ public class DataSourceActivity extends Activity implements OnGestureListener{
     public void setThresholdValue(View v) {
         EditText thresholdValueTextView = (EditText) findViewById(R.id.thresholdValue);
         String thresholdValueText = thresholdValueTextView.getText().toString();
+        if (isInteger(thresholdValueText))
         thresholdValue = Integer.parseInt(thresholdValueText);
+        else {
+            thresholdValue = 90;
+            thresholdValueTextView.setText("90");
+        }
+    }
+
+    public static boolean isInteger(String s) {
+        try {
+            Integer.parseInt(s);
+        } catch(NumberFormatException e) {
+            return false;
+        } catch(NullPointerException e) {
+            return false;
+        }
+        // only got here if we didn't return false
+        return true;
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data){

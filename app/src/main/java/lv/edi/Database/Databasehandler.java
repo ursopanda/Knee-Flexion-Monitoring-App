@@ -89,10 +89,10 @@ public class Databasehandler extends SQLiteOpenHelper {
 
         // If we got results get the first one
         FlexionStats flexionStats = new FlexionStats();
-        if (cursor != null && cursor.moveToFirst())
+        if (cursor != null)
         {
             // Building FlexionStats object
-
+            cursor.moveToFirst();
             flexionStats.setId(Integer.parseInt(cursor.getString(0)));
             flexionStats.setFlexion_value(Integer.parseInt(cursor.getString(1)));
             flexionStats.setFlexion_time(java.sql.Timestamp.valueOf(cursor.getString(2)));
@@ -112,7 +112,7 @@ public class Databasehandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT MAX(flexion_value) FROM flexionAngles",null);
         if (cursor != null && cursor.moveToFirst()) {
-            maxValue = Integer.parseInt(cursor.getString(0));
+        maxValue = Integer.parseInt(cursor.getString(0));
             // Log
             Log.d("getMaxFlexionValue", flexionStats.toString());
         }

@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Vibrator;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 import lv.edi.Database.Databasehandler;
 import lv.edi.Database.FlexionStats;
@@ -362,5 +363,11 @@ public class DisplayCalculations extends Activity {
             default:
                 return false;
         }
+    }
+
+    // Respond for button to view Flexion's animation
+    public void onClickViewAnimation(View v) {
+        Intent intent = new Intent(this, FlexionAnimationActivity.class);
+        startActivity(intent);
     }
 }

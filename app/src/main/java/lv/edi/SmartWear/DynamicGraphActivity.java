@@ -63,6 +63,24 @@ public class DynamicGraphActivity extends Activity {
         rendererSeries.setPointStyle(PointStyle.CIRCLE);
 
         timeSeries = new TimeSeries("Flexion");
+        db.deleteFlexionStats();
+//        db.addFlexionStats(new FlexionStats(9));
+//        db.addFlexionStats(new FlexionStats(13));
+//        db.addFlexionStats(new FlexionStats(19));
+//        db.addFlexionStats(new FlexionStats(23));
+//        db.addFlexionStats(new FlexionStats(35));
+//        db.addFlexionStats(new FlexionStats(42));
+//        db.addFlexionStats(new FlexionStats(48));
+//        db.addFlexionStats(new FlexionStats(57));
+//        db.addFlexionStats(new FlexionStats(68));
+//        db.addFlexionStats(new FlexionStats(75));
+//        db.addFlexionStats(new FlexionStats(84));
+//        db.addFlexionStats(new FlexionStats(91));
+//        db.addFlexionStats(new FlexionStats(75));
+//        db.addFlexionStats(new FlexionStats(63));
+       // FlexionStats value = db.getFlexionValue(202);
+        //int val = (Integer) value.getFlexion_value();
+        final List<FlexionStats> flexionStats = db.getAllFlexionStats();
         mThread = new Thread(){
             public void run(){
                 while(true){
