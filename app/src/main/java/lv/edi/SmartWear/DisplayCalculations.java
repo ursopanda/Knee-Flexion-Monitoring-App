@@ -297,14 +297,14 @@ public class DisplayCalculations extends Activity {
                                 double cos5 = x5;
                                 double degrees5 = Math.toDegrees(Math.acos(cos5));
                                 degrees5 = Math.round(degrees5);
-                                flexionsAngleValue = (int) degrees2;
+                                flexionsAngleValue = (int) degrees5;
                                 // Showing flexion angle's value to user
                                 String flexionAngleText5 = Double.toString(degrees5);
                                 TextView flexionAngle5 = (TextView) findViewById(R.id.flexionAngle5);
                                 flexionAngle5.setText(flexionAngleText5 + "°");
                                 // ------------------------------------------------------------------------------------------------------------
                                 // Database stuff: Putting calculated angle's value to DB FlexionAngles Table
-                                db.addFlexionStats(new FlexionStats((int) degrees2));
+                                db.addFlexionStats(new FlexionStats((int) degrees5));
 
                                 // Comparing calculated flexion's angle to threshold value
                                 if (degrees2 > DataSourceActivity.thresholdValue) {
@@ -312,24 +312,24 @@ public class DisplayCalculations extends Activity {
                                     // Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
                                     // Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
                                     // r.play();
-                                    flexionAngle2.setTextColor(Color.RED);
+                                    flexionAngle5.setTextColor(Color.RED);
                                     thresholdCounter++;
                                 } else {
                                     // Hard-coding the checking for notifications show-up.
                                     // Will help dealing with notifications popping-up all the time
-                                    previousFlexionValue = (int) degrees2;
-                                    flexionAngle2.setTextColor(Color.WHITE);
+                                    previousFlexionValue = (int) degrees5;
+                                    flexionAngle5.setTextColor(Color.WHITE);
                                 }
                                 // Showing Alert Dialogs, according to overcoming the threshold value of flexion's angle
                                 if (thresholdCounter == 2 && previousFlexionValue != 0) {
                                     alertDialog.show();
                                     thresholdCounter++;
                                     previousFlexionValue = 0;
-                                } else if ((thresholdCounter == 4)&&(!alertDialog.isShowing()) && previousFlexionValue != 0) {
+                                } else if ((thresholdCounter == 5)&&(!alertDialog.isShowing()) && previousFlexionValue != 0) {
                                     alertDialog2.show();
                                     thresholdCounter++;
                                     previousFlexionValue = 0;
-                                } else if ((thresholdCounter == 5) && ((!alertDialog.isShowing()) && (!alertDialog2.isShowing())) && previousFlexionValue != 0) {
+                                } else if ((thresholdCounter == 8) && ((!alertDialog.isShowing()) && (!alertDialog2.isShowing())) && previousFlexionValue != 0) {
                                     thresholdCounter = 0;
                                     alertDialog3.show();
                                     previousFlexionValue = 0;
